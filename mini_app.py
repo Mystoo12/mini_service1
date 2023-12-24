@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import random
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -10,5 +11,5 @@ def generer_nombre_aleatoire():
     return render_template('index.html', nombre_aleatoire = nombre_aleatoire)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    serve(app, host='0.0.0.0', port=8000)
 
