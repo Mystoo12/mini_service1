@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: imageappnode
+spec:
+  rules:
+    - host: imageappnode.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: imageappnode
+                port:
+                  number: 8080
+                    
+    - host: miniservicedeux.info
+      http:
+        paths:
+          - path: /mini_service2
+            pathType: Prefix
+            backend:
+              service:
+                name: miniservicedeux
+                port:
+                  number: 8080
